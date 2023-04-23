@@ -5,12 +5,14 @@
 
         <h1>Afficher les Recettes </h1>
         <router-link class="btn btn-warning btn-block" to='/Ajouter'>Ajouter une recette</router-link>
+        <router-link class="btn btn-warning btn-block" to='/Planification'>Planification une recette</router-link>
         <hr><br><br>
 
         <div class="form-group">
           <label for="selectRecette">Sélectionner une recette :</label>
           <select class="form-control" id="selectRecette" v-model="selectedRecette">
             <option v-for="recette in recettes" :value="recette" v-bind:key="recette.id_recette">{{ recette.nom_recette }}</option>
+
           </select>
         </div>
 
@@ -26,6 +28,11 @@
           </thead>
           <tbody>
           <tr>
+            <td>
+              <ul>
+                <li v-for="recette in selectedRecette.recettes" v-bind:key="recette.id_recette">{{ recette.description_recette }} - {{ recette.temps_preparation }} - {{ recette.temps_cuisson }}- {{ recette.difficulte }} - - {{ recette.nb_personnes }}</li>
+              </ul>
+            </td>
             <td>
               <ul>
                 <li v-for="ingredient in selectedRecette.ingredients" v-bind:key="ingredient.id_ingredient">{{ ingredient.nom_ingredient }} - {{ ingredient.description_ingredient }} - {{ ingredient.unite }}- {{ ingredient.prix }} - - {{ ingredient.quantite }}</li>
@@ -65,7 +72,7 @@ export default {
   },
   methods: {
     fetchRecipes() {
-      axios.get('http://localhost:8080/api/recettes/')
+      axios.get('http://localhost:8081/api/recettes/')
           .then(response => {
             this.recettes = response.data;
           })

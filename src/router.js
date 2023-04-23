@@ -3,6 +3,7 @@ import Planification from'./components/Planification';
 import Modifier from'./components/Modifier';
 import Recettes from './components/Recettes.vue';
 import Ajouter from './components/Ajouter.vue';
+import AjouterIngredient from "@/components/AjouterIngredient";
 const routes = [
     {
         path: '/',
@@ -23,6 +24,11 @@ const routes = [
         path: '/Planification',
         name: 'Planification',
         component: Planification
+    },
+    {
+        path: '/Ajouter/AjouterIngredient',
+        name: 'AjouterIngredient',
+        component: AjouterIngredient
     },
 
 ];

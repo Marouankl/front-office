@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     fetchRecipes() {
-      axios.get('http://localhost:8080/api/recettes/')
+      axios.get('http://localhost:8081/api/recettes/')
           .then(response => {
             this.recettes = response.data;
           })
@@ -88,7 +88,7 @@ export default {
         }
       };
 
-      axios.post('http://localhost:8080/api/marmiton/', plan)
+      axios.post('http://localhost:8081/api/marmiton/', plan)
           .then(response => {
             console.log(response.data);
           })

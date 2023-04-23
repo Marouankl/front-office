@@ -98,7 +98,7 @@ export default {
     updateRecipe() {
       if (this.selectedRecette && this.selectedRecette.id_recette) {
         axios
-            .post(`http://localhost:8080/api/recettes/update/${this.selectedRecette.id_recette}`, this.selectedRecette)
+            .post(`http://localhost:8081/api/recettes/update/${this.selectedRecette.id_recette}`, this.selectedRecette)
             .then((response) => {
               console.log(response.data);
             })
@@ -110,7 +110,7 @@ export default {
     deleteRecipe() {
       if (this.selectedRecette && this.selectedRecette.id_recette) {
         axios
-            .delete(`http://localhost:8080/api/recettes/${this.selectedRecette.id_recette}`)
+            .delete(`http://localhost:8081/api/recettes/${this.selectedRecette.id_recette}`)
             .then((response) => {
               console.log(response.data);
             })
